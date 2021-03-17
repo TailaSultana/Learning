@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Forms</title>
+</head>
+<body>
+    <!--
+        1. Nested Forms can have separate submit buttons
+    but they all submit to the  main form server link
+    and they all submit the same key value pairs.
+    -->
+    <!--
+        2. By using formaction attribute in submit
+        we can override the above behaviour.
+    -->
+    <!--
+        3. Separate Forms behave independently
+    -->
+    <form action="http://www.example.com" method="get"> 
+        <input type="text" name="username" value="ABC">
+        <input type="submit">
+        <hr/>
+        <form action="http://127.0.0.1:5500/" method="GET">
+            <input type="text" name="comment">
+            <input type="submit" formaction="http://127.0.0.1:5500/" value="comment">
+        </form>
+        <hr/>
+    </form>
+
+    <form action="http://127.0.0.1:5500/" method="get">
+        <input type="text" name="login">
+        <input type="submit">
+    </form>
+    <button>Click</button>
+</body>
+</html>
